@@ -1,0 +1,7 @@
+<h2>Saved Quotes</h2>
+
+<ul>
+    <li *ngFor="let quote of quotes">
+        <app-quote [quote]="quote"></app-quote> <button (click)="deleteQuote(quote.id)">Remove</button>
+    </li>
+</ul>
