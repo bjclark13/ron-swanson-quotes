@@ -11,5 +11,5 @@ CREATE TABLE quotes(
 	quote VARCHAR(255)
 )
 ```
-
-7. Update saved.js to be able to get, add, and delete quotes from the database. (Hint, use `pool.query()`)
+7. Update connection.js to use your PG password 
+8. Update saved.js to be able to get, add, and delete quotes from the database. (Hint, use `pool.query()`)
