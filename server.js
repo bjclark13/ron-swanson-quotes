@@ -6,6 +6,8 @@ const app = express();
 // query string parameters
 app.use(express.json());
 
+app.use(cors());
+
 const port = 3000
 
 // Import routes file, this is where
