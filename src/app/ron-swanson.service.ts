@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Quote } from "./quote";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class RonSwansonService {
-  // import http client here
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   quotes: Quote[] = [
     { id: 0, quote: "Todo: " },
@@ -22,7 +22,7 @@ export class RonSwansonService {
     return "";
   }
 
-  // TODO 
+  // TODO
   // Replace this with a GET call to your API
   getSavedQuotes(): string[] {
     // use http client
@@ -39,12 +39,11 @@ export class RonSwansonService {
     this.quotes.push({ quote, id: this.quotes.length });
   }
 
-  // TODO: 
+  // TODO:
   // Replace this with a DELETE call to your api
   deleteQuote(id: number) {
-
-    const index = this.quotes.findIndex( (quote) => {
-      console.log(quote.id)
+    const index = this.quotes.findIndex((quote) => {
+      console.log(quote.id);
       return quote.id == id;
     });
 
