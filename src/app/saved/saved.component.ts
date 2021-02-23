@@ -11,7 +11,9 @@ export class SavedComponent implements OnInit {
   quotes: Quote[] = [];
   constructor(public service: RonSwansonService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getSavedQuotes();
+  }
 
   deleteQuote(id: number) {
     this.service.deleteQuote(id);

@@ -25,30 +25,32 @@ export class RonSwansonService {
 
   // TODO 
   // Replace this with a GET call to your API
-  getSavedQuotes(): string[] {
+  getSavedQuotes() {
     // use http client
     // to get saved quotes from
     // your express API
     // aka
     // http://localhost:3000/api/quotes
-    return [];
+    this.http.get("http://localhost:3000/api/quotes").subscribe( (quotes: Quote[]) => {
+      this.quotes = quotes;
+    })
   }
 
   // TODO
   // Repalce this with a POST call to your api
   saveQuote(quote: string) {
-    this.quotes.push({ quote, id: this.quotes.length });
+    this.http.post("http://localhost:3000/api/quotes", {
+      quote
+    }).subscribe( (quotes: Quote[]) => {
+      this.quotes = quotes;
+    })
   }
 
   // TODO: 
   // Replace this with a DELETE call to your api
   deleteQuote(id: number) {
-
-    const index = this.quotes.findIndex( (quote) => {
-      console.log(quote.id)
-      return quote.id == id;
-    });
-
-    this.quotes.splice(index, 1);
+    this.http.delete("http://localhost:3000/api/quotes/" + id).subscribe(() => {
+      this.getSavedQuotes();
+    })
   }
 }
