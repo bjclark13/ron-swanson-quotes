@@ -1,6 +1,10 @@
 const express = require("express");
 const routes = express.Router();
 
+// TODO: for database stuff
+// don't forget to fill in your password
+const pool = require('./connection');
+
 // logic for our endpoints
 const savedQuotes = [];
 
