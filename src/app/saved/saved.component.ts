@@ -1,5 +1,6 @@
 import { Quote } from "../quote";
 import { Component, OnInit } from "@angular/core";
+import { RonSwansonService } from "../ron-swanson.service";
 
 @Component({
   selector: "app-saved",
@@ -7,13 +8,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./saved.component.css"],
 })
 export class SavedComponent implements OnInit {
-  quotes: Quote[] = [
-    { id: 1, quote: "Todo: " },
-    { id: 2, quote: "Replace" },
-    { id: 3, quote: "with" },
-    { id: 4, quote: "API call." },
-  ];
-  constructor() {}
+  quotes: Quote[] = [];
+  constructor(public service: RonSwansonService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getSavedQuotes();
+  }
+
+  deleteQuote(id: number) {
+    this.service.deleteQuote(id);
+  }
 }

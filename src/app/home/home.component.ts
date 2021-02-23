@@ -9,8 +9,9 @@ import { RonSwansonService } from "../ron-swanson.service";
 })
 export class HomeComponent implements OnInit {
   randomQuote: string =
-    "TODO: Replace me with a quote from http://ron-swanson-quotes.herokuapp.com/v2/quotes";
-  constructor(private service: RonSwansonService) {}
+    "";
+
+  constructor( private service: RonSwansonService) {}
 
   ngOnInit() {
     this.service.getRandomQuote().subscribe((data: Quote) => {
@@ -18,5 +19,9 @@ export class HomeComponent implements OnInit {
       this.randomQuote = data[0];
       console.log(this.randomQuote)
     });
+  }
+
+  saveQuote() {
+    this.service.saveQuote(this.randomQuote);
   }
 }

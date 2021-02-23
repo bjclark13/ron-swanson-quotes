@@ -29,7 +29,7 @@ routes.delete("/:id", (req, res) => {
     return quote.id === req.params.id;
   });
 
-  routes.splice(index, 1);
+  savedQuotes.splice(index, 1);
   res.status(204);
   res.json("Deleted");
 });
