@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 @Injectable({
@@ -5,13 +6,13 @@ import { Injectable } from "@angular/core";
 })
 export class RonSwansonService {
   // import http client here
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getRandomQuote(): string {
+  getRandomQuote() {
     // use http client
     // to request Ron Swanson Quote from
     // http://ron-swanson-quotes.herokuapp.com/v2/quotes
-    return "";
+    return this.http.get('http://ron-swanson-quotes.herokuapp.com/v2/quotes');
   }
 
   getSavedQuotes(): string[] {
